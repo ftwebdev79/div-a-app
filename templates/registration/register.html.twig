@@ -1,0 +1,56 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="login-wrapper">
+        {% block header %}
+            {% include('partials/_header.html.twig') %}
+        {% endblock %}
+        <div class="form">
+
+
+
+            {{ form_start(registrationForm) }}
+            <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+            <label for="form-input">
+                {{ form_label(registrationForm.firstname) }}
+            </label>
+            <div class="form-input">
+                {{ form_widget(registrationForm.firstname, {'attr': {"class": "form-control"}}) }}
+            </div>
+            <label for="form-input">
+                {{ form_label(registrationForm.lastname) }}
+            </label>
+            <div class="form-input">
+                {{ form_widget(registrationForm.lastname, {'attr': {"class": "form-control"}}) }}
+            </div>
+            <label for="form-input">
+                {{ form_label(registrationForm.dateOfBirth) }}
+            </label>
+            <div class="form-input">
+                {{ form_widget(registrationForm.dateOfBirth, {'attr': {"class": "form-control"}}) }}
+            </div>
+            <label for="form-input">
+                {{ form_label(registrationForm.email) }}
+            </label>
+            <div class="form-input">
+                {{ form_widget(registrationForm.email, {'attr': {"class": "form-control"}}) }}
+            </div>
+            <label for=" form-input">
+                {{ form_label(registrationForm.plainPassword) }}
+            </label>
+            <div class="form-input">
+                {{ form_widget(registrationForm.plainPassword, {'attr': {"class": "form-control"}}) }}
+            </div>
+
+            {{ form_row(registrationForm.agreeTerms) }}
+
+            <button type="submit" class="btn">Register</button>
+            {{ form_end(registrationForm) }}
+        </div>
+        {% block footer %}
+            {% include('partials/_footer.html.twig') %}
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+
+// COLORS
+$color-one: #ccc5b9;
+$color-two: #fffcf2;
+$color-three: #403d39;
+$color-four: #eb5e28;
+$color-five: #252422;
+// FONTS
+$font-one: "Bebas Neue";
+$font-button: 1rem;
+$font-title: 2rem;
+$font-subtitle: 1.5rem;
+$font-text: 1rem;
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+@import "_artist_index.scss";
+
+@import "_header_admin.scss";
+
+body{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $color-three;
+}
+
+

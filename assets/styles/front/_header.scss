@@ -1,0 +1,61 @@
+.user_header{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  background-color: $color-one;
+  font-family: $font-one;
+  color: $color-three;
+  align-items: center;
+  box-shadow: 10px 5px 5px $color-five;
+  height: 10vh;
+
+  h1 {
+    text-shadow: 1px 1px 2px $color-four;
+    font-family: $font-one;
+    font-size: $font-title;
+    text-align: center;
+  }
+
+  button {
+    height: 3rem;
+    width: 10rem;
+    font-family: $font-one;
+    font-weight: bold;
+    background-color: $color-four;
+    border: none;
+    border-radius: 15px;
+    font-size: $font-button;
+    box-shadow: 1px 1px 2px $color-five;
+    a {
+      text-decoration: none;
+      color: $color-five;
+    }
+    a:hover{
+      color: $color-one;
+    }
+  }
+
+  .logo {
+    img {
+      width: 5rem;
+      height: 4rem;
+      object-fit: cover;
+      background-color: transparent;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    width: 100%;
+    h1 {
+      font-size: 2rem;
+    }
+    button {
+      display: none;
+    }
+  }
+}

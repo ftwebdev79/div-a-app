@@ -1,0 +1,19 @@
+.admin_header{
+  background-color: #ccc5b9;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  align-items: center;
+
+  .admin_title{
+    font-family: Bebas Neue, serif;
+    color: $color-four;
+  }
+
+  .admin-logo{
+    width: 100px;
+  }
+}

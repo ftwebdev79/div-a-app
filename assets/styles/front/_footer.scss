@@ -1,0 +1,43 @@
+footer {
+
+  display: flex;
+  background-color: $color-one;
+  height: 10vh;
+  //margin-top: 2rem;
+  div {
+    display: flex;
+    justify-content: right;
+    background-color: $color-one;
+    width: 90%;
+  }
+
+  .footnav {
+    display: flex;
+    align-items: center;
+    nav {
+      font-family: $font-one;
+      width: 90%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      justify-self: center;
+
+      a{
+        color: $color-four;
+      }
+    }
+  }
+  .logo {
+    img {
+      width: 4.5rem;
+      height: 4.5rem;
+      justify-content: right;
+      object-fit: cover;
+    }
+  }
+  @media screen and (max-width:500px) {
+    footer{
+      width: 100%;
+    }
+  }
+}

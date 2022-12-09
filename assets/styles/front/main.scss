@@ -1,0 +1,37 @@
+
+// COLORS
+$color-one: #ccc5b9;
+$color-two: #fffcf2;
+$color-three: #403d39;
+$color-four: #eb5e28;
+$color-five: #252422;
+// FONTS
+$font-one: "Bebas Neue";
+$font-button: 1rem;
+$font-title: 2rem;
+$font-subtitle: 1.5rem;
+$font-text: 1rem;
+
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+@import "accueil";
+
+@import "footer";
+
+@import "_header.scss";
+
+@import "login";
+
+@import "user-interface";
+
+@import "slide-card";
+
+@import "footer";
+
+@import "register";
+
+
+
+

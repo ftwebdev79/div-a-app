@@ -1,0 +1,59 @@
+body {
+  background-color: $color-three;
+
+
+  .login-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+
+    .form{
+      display: flex;
+      justify-content: center;
+      margin-top: 200px;
+      margin-bottom: 227px;
+      form {
+        border-radius: 30px;
+        background-color: $color-four;
+        width: 50%;
+        padding: 1rem;
+
+        h1 {
+          color: $color-one;
+        }
+
+        label {
+          color: $color-one;
+          padding-bottom: 0.5rem;
+        }
+        //
+        //.form-input{
+        //  width: 350px;
+        //}
+
+        button {
+          background-color: $color-three;
+          margin-top: 0.5rem;
+          color: $color-one;
+        }
+
+        button:hover {
+          background-color: $color-one;
+          color: $color-five;
+        }
+      }
+    }
+
+    footer{
+      margin-top: auto;
+    }
+  }
+@media only screen and (max-width: 700px){
+  body .login-wrapper .form{
+    margin-top: 200px;
+    margin-bottom: 200px;
+  }
+}
+}
+

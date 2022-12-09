@@ -1,0 +1,127 @@
+.wrapper {
+  margin: 0;
+  padding: 0;
+  background-color: $color-three;
+  color: white;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
+
+  header {
+    grid-area: header;
+  }
+
+  aside {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    grid-area: aside;
+    background-color: $color-five;
+    border-right: $color-five 2px;
+    height: 100%;
+
+    li {
+      color: $color-four;
+      font-family: Bebas Neue, serif;
+      list-style: none;
+    }
+  }
+
+  main {
+    grid-area: main;
+    overflow-y: auto;
+
+
+    .artist-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+
+      h3 {
+        font-family: Bebas Neue, serif;
+        color: $color-one;
+
+      }
+
+      .previous, .next {
+        background-color: transparent;
+        border: none;
+        transition: transform 0.3s;
+        i {
+          color: $color-four;
+        }
+
+      }
+      .previous:hover, .next:hover{
+        transform: scale(1.2);
+      }
+    }
+
+    .slider-wrapper-artist, .slider-wrapper {
+      display: flex;
+      flex-direction: row;
+      background-color: $color-four;
+      width: 100%;
+      margin-top: 0;
+      overflow-x: hidden;
+    }
+
+  }
+
+  footer {
+    position: sticky;
+    grid-area: footer;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "header"
+    "main"
+    "aside"
+    "footer";
+    height: auto;
+  }
+}
+
+/**
+Carousel
+ */
+
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: $color-four;
+  width: 100%;
+  margin-top: 0;
+}
+
+.carousel_container {
+  overflow: hidden;
+  //transform: translate3d(-28%, 0, 0);
+}
+
+.carousel_container::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.carousel_item {
+  float: left;
+}
+
+.carousel_next, .carousel_prev{
+  width: 40px;
+  height: 40px;
+  //background: $color-four url("public/images/left-arrow-previous-svgrepo-com.svg");
+}

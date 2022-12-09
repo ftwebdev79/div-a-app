@@ -1,0 +1,38 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+
+    <div class="container admin_content">
+    <h3 class="content_title">Listes des Utilisateurs</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Identifiant</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Date de naissance</th>
+            <th scope="col">Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.dateOfBirth | date('d/m/Y')}}</td>
+                {% for role in user.roles %}
+                <td>{{ role }}</td>
+                {% endfor %}
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+
+{% endblock %}
