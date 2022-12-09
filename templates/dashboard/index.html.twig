@@ -15,6 +15,9 @@
             <th scope="col">Nom</th>
             <th scope="col">Date de naissance</th>
             <th scope="col">Role</th>
+            <th scope="col">Action</th>
+            <th scope="col">Action</th>
+
         </tr>
         </thead>
         <tbody>
@@ -24,13 +27,11 @@
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.dateOfBirth | date('d/m/Y')}}</td>
-                {% for role in user.roles %}
-                <td>{{ role }}</td>
-                {% endfor %}
-
+                <td>{{ user.roles[0] }}</td>
+                <td><a href="{{ path('app_user_update', {'id': user.id}) }}" class="btn btn-primary">Edit</a></td>
+                <td><a class="btn btn-danger">Supprimer</a></td>
             </tr>
-        {% endfor %}
-        </tbody>
+        {% endfor %}       </tbody>
     </table>
     </div>
 

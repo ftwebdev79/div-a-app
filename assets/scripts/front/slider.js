@@ -62,7 +62,7 @@ class Slider{
     }
 
     prev(){
-        this.goToItem(this.currentItem  - this.options.slidesToScroll)
+        this.goToItem(this.currentItem - this.options.slidesToScroll)
     }
 
     /**
@@ -78,9 +78,9 @@ class Slider{
 
 
 new Slider(
-    document.querySelector('.slider-wrapper-artist',{
+    document.querySelector('.slider-wrapper-artist'),{
         'slidesToScroll' : 2,
-        'slidesVisible' : 8
-    })
+        'slidesVisible' : 6,
+    }
 
 )
