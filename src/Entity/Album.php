@@ -19,8 +19,6 @@ class Album
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $duration = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $releasedAt = null;
@@ -30,6 +28,12 @@ class Album
 
     #[ORM\ManyToMany(targetEntity: Artist::class, inversedBy: 'albums')]
     private Collection $artists;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cover = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $duration = null;
 
     public function __construct()
     {
@@ -54,17 +58,7 @@ class Album
         return $this;
     }
 
-    public function getDuration(): ?\DateTimeInterface
-    {
-        return $this->duration;
-    }
 
-    public function setDuration(\DateTimeInterface $duration): self
-    {
-        $this->duration = $duration;
-
-        return $this;
-    }
 
     public function getReleasedAt(): ?\DateTimeInterface
     {
@@ -129,6 +123,30 @@ class Album
     public function __toString(): string
     {
         return $this->getTitle();
+    }
+
+    public function getCover(): ?string
+    {
+        return $this->cover;
+    }
+
+    public function setCover(?string $cover): self
+    {
+        $this->cover = $cover;
+
+        return $this;
+    }
+
+    public function getDuration(): ?string
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(string $duration): self
+    {
+        $this->duration = $duration;
+
+        return $this;
     }
 
 

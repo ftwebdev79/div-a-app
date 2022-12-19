@@ -21,6 +21,9 @@ class Style
     #[ORM\ManyToMany(targetEntity: Song::class, inversedBy: 'styles')]
     private Collection $songs;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     public function __construct()
     {
         $this->songs = new ArrayCollection();
@@ -63,6 +66,18 @@ class Style
     public function removeSong(Song $song): self
     {
         $this->songs->removeElement($song);
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

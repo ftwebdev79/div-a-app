@@ -1,6 +1,6 @@
 .wrapper {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   background-color: $color-three;
   color: white;
   height: 100vh;
@@ -9,7 +9,8 @@
   grid-template-areas:
     "header header"
     "aside main"
-    "footer footer";
+    "footer footer"
+    "audio-player-container audio-player-container";
 
   header {
     grid-area: header;
@@ -27,9 +28,15 @@
     height: 100%;
 
     li {
-      color: $color-four;
+
       font-family: Bebas Neue, serif;
-      list-style: none;
+      list-style-type: none;
+      font-size: 24px;
+    }
+
+    li a{
+      color: $color-four;
+      text-decoration: none;
     }
   }
 
@@ -46,6 +53,7 @@
       h3 {
         font-family: Bebas Neue, serif;
         color: $color-one;
+        padding-left: 10px;
 
       }
 
@@ -53,12 +61,14 @@
         background-color: transparent;
         border: none;
         transition: transform 0.3s;
+
         i {
           color: $color-four;
         }
 
       }
-      .previous:hover, .next:hover{
+
+      .previous:hover, .next:hover {
         transform: scale(1.2);
       }
     }
@@ -78,50 +88,72 @@
     position: sticky;
     grid-area: footer;
   }
+
+  .audio-player-container {
+    grid-area: audio-player-container;
+    width: 100%;
+    background-color: pink;
+    //display: none;
+
+    #play-icon {
+      background-color: blue;
+    }
+  }
+
 }
 
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
+  aside {
+    display: none;
+  }
+
   .wrapper {
     grid-template-columns: 1fr;
     grid-template-areas:
     "header"
     "main"
     "aside"
-    "footer";
+    "footer"
+    "audio-player-container";
     height: auto;
+  }
+
+  .wrapper main{
+    width: 100%;
   }
 }
 
-/**
-Carousel
- */
-
-.carousel {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  background-color: $color-four;
-  width: 100%;
-  margin-top: 0;
-}
-
-.carousel_container {
-  overflow: hidden;
-  //transform: translate3d(-28%, 0, 0);
-}
-
-.carousel_container::after {
-  content: '';
-  clear: both;
-  display: table;
-}
-
-.carousel_item {
-  float: left;
-}
-
-.carousel_next, .carousel_prev{
-  width: 40px;
-  height: 40px;
-  //background: $color-four url("public/images/left-arrow-previous-svgrepo-com.svg");
-}
+///**
+//Carousel
+// */
+//
+//.carousel {
+//  position: relative;
+//  display: flex;
+//  flex-direction: row;
+//  background-color: $color-four;
+//  width: 100%;
+//  margin-top: 0;
+//  overflow: hidden;
+//}
+//
+//.carousel_container {
+//
+//  //transform: translate3d(-28%, 0, 0);
+//}
+//
+//.carousel_container::after {
+//  content: '';
+//  clear: both;
+//  display: table;
+//}
+//
+//.carousel_item {
+//  float: left;
+//}
+//
+//.carousel_next, .carousel_prev{
+//  width: 40px;
+//  height: 40px;
+//  //background: $color-four url("public/images/left-arrow-previous-svgrepo-com.svg");
+//}

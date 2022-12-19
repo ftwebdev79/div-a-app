@@ -4,78 +4,69 @@
 
 
 {% block body %}
-<div class="wrapper">
-    {% block header %}
-        {% include('partials/_header.html.twig') %}
-    {% endblock %}
-    <aside>
-        <ul>
-            <li>Artistes</li>
-            <li>Albums</li>
-            <li>Playlist</li>
-        </ul>
-    </aside>
-    <main>
-        <div class="artist-buttons">
-        <h3>Artiste</h3>
-            <div class="btns">
-            <button class="previous"><i class="fa-solid fa-circle-chevron-left"></i></button>
-            <button class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
-            </div>
-        </div>
+    <div class="wrapper">
+        {% block header %}
+            {% include('partials/_header.html.twig') %}
+        {% endblock %}
+        <aside>
+            <ul>
+                <li><a href="#">Artistes</a></li>
+                <li><a href="#">Albums</a></li>
+                <li><a href="#">Playlists</a></li>
 
-        <div class="slider-wrapper-artist">
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
+            </ul>
+        </aside>
+        <main>
+            <div class="artist-buttons">
+                <h3>Artiste</h3>
+                <div class="btns">
+                    <button class="previous"><i class="fa-solid fa-circle-chevron-left"></i></button>
+                    <button class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+                </div>
+            </div>
 
-        </div>
-        <div class="artist-buttons">
-            <h3>Albums</h3>
-            <div class="btns">
-                <button class="previous"><i class="fa-solid fa-circle-chevron-left"></i></button>
-                <button class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+            <div class="slider-wrapper-artist" id="carousel">
+                {% for artist  in artists %}
+                    {% include('partials/_slide-card.html.twig') %}
+                {% endfor %}
             </div>
-        </div>
-        <div class="slider-wrapper">
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-        </div>
-        <div class="artist-buttons">
-            <h3>Playlist</h3>
-            <div class="btns">
-                <button class="previous"><i class="fa-solid fa-circle-chevron-left"></i></button>
-                <button class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+            <div class="artist-buttons">
+                <h3>Albums</h3>
+                <div class="btns">
+                    <button class="previous"><i class="fa-solid fa-circle-chevron-left"></i></button>
+                    <button class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+                </div>
             </div>
+            <div class="slider-wrapper">
+                {% for artist  in artists %}
+                    {% include('./partials/_slide-card.html.twig') %}
+                {% endfor %}
+            </div>
+            <div class="artist-buttons">
+                <h3>Playlist</h3>
+                <div class="btns">
+                    <button class="previous"><i class="fa-solid fa-circle-chevron-left"></i></button>
+                    <button class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="slider-wrapper">
+                {% include('./partials/_slide-card.html.twig') %}
+                {% include('./partials/_slide-card.html.twig') %}
+                {% include('./partials/_slide-card.html.twig') %}
+                {% include('./partials/_slide-card.html.twig') %}
+                {% include('./partials/_slide-card.html.twig') %}
+                {% include('./partials/_slide-card.html.twig') %}
+                {% include('./partials/_slide-card.html.twig') %}
+            </div>
+        </main>
+        {% block footer %}
+            {% include('partials/_footer.html.twig') %}
+        {% endblock %}
+        <div class="audio-player-container">
+            <p>Audio Player</p>
+            <button id="play-icon"></button>
         </div>
-        <div class="slider-wrapper">
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-            {% include('./partials/_slide-card.html.twig') %}
-        </div>
-    </main>
-    {% block footer %}
-        {% include('partials/_footer.html.twig') %}
-    {% endblock %}
-</div>
-    {% endblock %}
+    </div>
+{% endblock %}
 
 

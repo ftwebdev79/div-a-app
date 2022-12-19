@@ -4,15 +4,14 @@
 
 {% block body %}
     <div class="container admin_content">
-    <h3 class="content_title">Listes des Artistes</h3>
+    <h3 class="content_title">Liste des artistes</h3>
 
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">Identifiant</th>
-                <th scope="col">Nom de l'artiste ou du groupe</th>
+                <th scope="col">Nom</th>
                 <th scope="col">Première sortie</th>
-                <th scope="col">Albums</th>
                 <th scope="col">thumbnails</th>
                 <th scope="col">Ajouté le</th>
             </tr>
@@ -23,10 +22,7 @@
                 <th scope="row">{{ artist.id }}</th>
                 <td>{{ artist.name }}</td>
                 <td>{{ artist.firstReleasedAt | date('d/m/Y') }}</td>
-                {% for album  in artist.albums  %}
-                <td>{{ album.title }}</td>
-                {% endfor %}
-                <td><span class="img"><img src="{{ asset('build/images/John_lopker.jpg') }}" alt=""></span></td>
+                <td><span class="img"><img src="{{ asset('images/artist/' ~artist.image) }}" alt=""></span></td>
                 <td>{{ artist.createdAt | date('d/m/Y') }}</td>
             </tr>
             {% endfor %}

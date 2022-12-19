@@ -1,8 +1,19 @@
-<a class="item" href="">
-<div class="card" >
-    <img src="{{ asset ('/images/R-14975841-1605132073-6851.jpg') }}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h3 class="card-text">Coucou</h3>
+{% if artist is defined and artist is not null %}
+<a class="item" href="{{ path('app_artist_details', {'id': artist.id}) }}">
+    {% else %}
+        Unknown artist
+    {% endif %}
+    <div class="card">
+        {% if artist is defined and artist is not null %}
+        <img src="{{ asset ('/images/artist/' ~artist.image) }}" class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+            {% if artist is defined and artist is not null %}
+                <h3 class="card-text">{{ artist.name }}</h3>
+            {% else %}
+                Unknown artist
+            {% endif %}
+
+        </div>
     </div>
-</div>
 </a>

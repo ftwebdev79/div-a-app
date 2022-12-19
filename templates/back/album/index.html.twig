@@ -1,20 +1,39 @@
-{% extends '../../base.html.twig' %}
+{% extends 'back/base.html.twig' %}
 
-{% block title %}Hello AlbumController!{% endblock %}
+{% block title %}Hello ArtistController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container admin_content">
+        <h3 class="content_title">Listes des Artistes</h3>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Identifiant</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Durée</th>
+                <th scope="col">Sortie le</th>
+                <th scope="col">Artiste(s)</th>
+                <th scope="col">Pochette</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for album in albums %}
+                <tr>
+                    <th scope="row">{{ album.id }}</th>
+                    <td>{{ album.title }}</td>
+                    <td>{{ album.duration  }}</td>
+                        <td>{{ album.releasedAt | date('d/m/Y') }}</td>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Stagiaire Osengo 08/Desktop/div-a-app/src/Controller/AlbumController.php'|file_link(0) }}">src/Controller/AlbumController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Stagiaire Osengo 08/Desktop/div-a-app/templates/album/index.html.twig'|file_link(0) }}">templates/album/index.html.twig</a></code></li>
-    </ul>
-</div>
+                        <td>
+                    {% for artist in album.artists %}
+                            {{ artist.name | join(', ')}}
+                    {% endfor %}
+                        </td>
+                    <td><span class="img"><img src="{{ asset('images/album/' ~album.cover) }}" alt=""></span></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

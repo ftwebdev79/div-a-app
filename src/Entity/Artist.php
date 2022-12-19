@@ -34,10 +34,13 @@ class Artist
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    #[ORM\ManyToMany(targetEntity: Song::class, mappedBy: 'artists')]
+    private Collection $songs;
 
     public function __construct()
     {
         $this->albums = new ArrayCollection();
+        $this->songs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -116,7 +119,7 @@ class Artist
 
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTime('now');
 
         return $this;
     }
@@ -133,10 +136,39 @@ class Artist
         return $this;
     }
 
+
     public function __toString(): string
     {
        return $this->getAlbums();
     }
+
+    /**
+     * @return Collection<int, Song>
+     */
+    public function getSongs(): Collection
+    {
+        return $this->songs;
+    }
+
+    public function addSong(Song $song): self
+    {
+        if (!$this->songs->contains($song)) {
+            $this->songs->add($song);
+            $song->addArtist($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSong(Song $song): self
+    {
+        if ($this->songs->removeElement($song)) {
+            $song->removeArtist($this);
+        }
+
+        return $this;
+    }
+
 
 
 }

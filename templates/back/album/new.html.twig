@@ -1,0 +1,37 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Hello ArtistController!{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h2>Ajouter un album</h2>
+        <div class="form">
+            <form method="post" enctype="multipart/form-data">
+
+                {{ form_start(form) }}
+
+                {{ form_label(form.title) }}
+                {{ form_widget(form.title, {'attr': {"class": "form-control"}}) }}
+
+                {{ form_label(form.duration) }}
+                {{ form_widget(form.duration,  {'attr': {"class": "form-control"}}) }}
+
+                {{ form_label(form.releasedAt) }}
+                {{ form_widget(form.releasedAt,  {'attr': {"class": "form-control"}}) }}
+
+                {{ form_label(form.artists) }}
+                {{ form_widget(form.artists,  {'attr': {"class": "form-control"}}) }}
+
+                {{ form_label(form.coverFile) }}
+                {{ form_widget(form.coverFile,  {'attr': {"class": "form-control"}}) }}
+                <button class="btn btn-lg" type="submit">
+                    Ajouter
+                </button>
+                {{ form_end(form) }}
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

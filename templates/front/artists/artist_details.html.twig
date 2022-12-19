@@ -1,0 +1,13 @@
+<section class="artist_details">
+    <div class="artist_image">
+        <img src="{{ asset('public/build/images/' ~ artist.image)}}" alt="" class="artist_cover">
+        <p class="artist_name">{{ artist.name }}</p>
+        <p class="first_release">Première sortie de l'artiste : {{ artist.firstReleasedAt | date('d/m/Y') }}</p>
+    </div>
+
+    <div class="artist_description">{{ artist.description }}</div>
+
+    <div class="artist_albums">
+
+    </div>
+</section>
