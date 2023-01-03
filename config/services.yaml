@@ -8,6 +8,7 @@ parameters:
     artistImage_directory: '%kernel.project_dir%/public/images/artist'
     albumCover_directory: '%kernel.project_dir%/public/images/album'
     styleImage_directory: '%kernel.project_dir%/public/images/genre'
+    mp3_directory:  '%kernel.project_dir%/public/mp3'
 services:
     # default configuration for services in *this* file
     _defaults:

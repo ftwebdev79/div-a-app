@@ -1,0 +1,82 @@
+.artist_details, .album_details  {
+    //height: 100vh;
+  .artist_info/*, .album_info*/ {
+    width: 100%;
+    background-color: $color-four;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .artist_image, .album_image {
+      width: 50%;
+      //padding: 15px;
+      display: flex;
+      justify-content: center;
+      .artist_cover {
+        border-radius: 50%;
+        border: $color-five solid 2px;
+      }
+    }
+
+    .artist_datas, .album_datas {
+      width: 50%;
+      padding: 30px;
+
+      .artist_name, .album_title {
+        color: $color-one;
+        font-family: Bebas Neue, serif;
+        font-size: 20px;
+      }
+
+      .first_release {
+        color: $color-five;
+        font-size: 16px;
+        font-family: Bebas Neue, serif;
+      }
+    }
+
+  }
+
+  .artist_description, table{
+    font-family: "Lucida Console", monospace, sans-serif;
+    font-size: 16px;
+    color: $color-one;
+    padding: 10px;
+ .song_link{
+      text-decoration: none;
+      color: $color-two;
+    }
+  }
+
+  h2{
+    font-family: Bebas Neue, serif;
+    color: $color-one;
+    padding: 10px;
+  }
+
+  .artist_albums {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Lucida Console", monospace, sans-serif;
+    color: $color-one;
+    .album_cover {
+      margin: 20px;
+
+      img{
+      border-radius: 50%;
+        width: 225px;
+        height: 225px;
+      }
+      p{
+        text-align: center;
+
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .artist_info{
+    flex-direction: column;
+  }
+}

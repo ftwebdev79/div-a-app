@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'front/base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-
     <div class="login-wrapper">
-        {% block header %}
-            {% include('partials/_header.html.twig') %}
-        {% endblock %}
+                {% block header %}
+                    {% include('partials/_header.html.twig') %}
+                {% endblock %}
+
         <div class="form">
             <form method="post">
                 {% if error %}
@@ -52,8 +52,9 @@
         </div>
 
 
-        {% block footer %}
-            {% include('partials/_footer.html.twig') %}
-        {% endblock %}
+                {% block footer %}
+                    {% include('partials/_footer.html.twig') %}
+                {% endblock %}
     </div>
+
 {% endblock %}

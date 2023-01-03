@@ -1,19 +1,22 @@
 <section class="menu">
-    <h4>Utilisateurs</h4>
     <ul>
-        <li><a href="{{ path('app_user_list') }}">Liste des utilisateurs</a></li>
-
+        <h4>Utilisateurs</h4>
+        <li><a href="{{ path('app_user_list') }}" class="link_active" id="admin_link">Liste des utilisateurs</a></li>
+        <hr>
         <h4>Artistes</h4>
-        <li><a href="{{ path('app_artist') }}">Liste des artistes</a></li>
-        <li><a href="{{ path('app_artist_new') }}"> Ajouter un artiste </a></li>
+        <li><a href="{{ path('app_artist_list') }}" id="admin_link">Liste des artistes</a></li>
+        <li><a href="{{ path('app_artist_new') }}" id="admin_link" > Ajouter un artiste </a></li>
+        <hr>
         <h4>Albums</h4>
-        <li><a href="{{ path('app_admin_album') }}"> Liste des albums</a></li>
-        <li><a href="{{ path('app_album_new') }}"> Ajouter un album</a></li>
+        <li><a href="{{ path('app_admin_album') }}" id="admin_link"> Liste des albums</a></li>
+        <li><a href="{{ path('app_album_new') }}" id="admin_link"> Ajouter un album</a></li>
+        <hr>
         <h4>Chansons</h4>
-        <li>Liste des chansons</li>
-        <li>Ajouter une chanson</li>
+        <li><a href="{{ path('app_song_list') }}" id="admin_link"> Liste des chansons</a></li>
+        <li><a href="{{ path('app_song_new') }}" id="admin_link"> Ajouter une ou des chansons</a></li>
+        <hr>
         <h4>Styles</h4>
-        <li><a href="{{ path('app_genre') }}">Liste des styles</a> </li>
-        <li><a href="{{ path('app_genre_new') }}">Ajouter un style</a> </li>
+        <li><a href="{{ path('app_genre') }}" id="admin_link">Liste des styles</a></li>
+        <li><a href="{{ path('app_genre_new') }}" id="admin_link">Ajouter un style</a></li>
     </ul>
 </section>

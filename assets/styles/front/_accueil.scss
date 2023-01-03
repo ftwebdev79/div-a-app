@@ -1,17 +1,16 @@
-body{
-  background-color: $color-three;
-}
+.container{
+  height: 100%;
 
 .log_choice {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   .front_card {
-    // background-color: $color-two;
+    margin: 7rem auto;
     width: 750px;
     height: 300px;
-    margin-top: 7rem;
     color: $color-five;
     font-family: Bebas Neue, serif;
     display: flex;
@@ -20,15 +19,16 @@ body{
     border-radius: 15px;
     justify-content: center;
 
-    button {
-      background-color: none;
+    .btn {
+      background-color: $color-one;
       height: 30px;
       width: 650px;
       border-radius: 50px;
-      a{
-        text-decoration: none;
-        color: $color-five ;
-      }
+      text-decoration: none;
+      color: $color-five;
+      border: 1px solid $color-five;
+      text-align: center;
+      padding: 5px;
     }
 
     a:hover, button:hover {
@@ -46,6 +46,7 @@ body{
     h2 {
       font-size: $font-subtitle;
       text-align: center;
+      color: $color-five;
     }
 
     p {
@@ -58,6 +59,7 @@ body{
   .front_card.card-two::after {
     content: "";
   }
+
   .card-two {
     background-color: rgb(201, 60, 75);
     display: flex;
@@ -66,6 +68,7 @@ body{
     h2 {
       font-size: $font-subtitle;
       text-align: center;
+      color: $color-five;
     }
 
     p {
@@ -97,6 +100,7 @@ body{
     h2 {
       font-size: $font-subtitle;
       text-align: center;
+      color: $color-five;
     }
 
     p {
@@ -110,9 +114,12 @@ body{
     background-color: #3ca3c9;
     display: flex;
     align-items: center;
+    margin-bottom: 50px;
+
     h2 {
       font-size: $font-subtitle;
       text-align: center;
+      color: $color-five;
     }
 
     p {
@@ -121,15 +128,15 @@ body{
       padding: 2rem;
     }
   }
-
-  @media screen and (max-width: 500px) {
+}
+  @media screen and (max-width: 700px) {
     .front_card {
-      width: 100%;
-      height: 100%;
+      width: 80%;
       font-size: $font-button;
-      button {
-        width: 100%;
-        font-size: 1rem;
+
+      .btn {
+        width: 50%;
+        font-size: 0.8rem;
         margin: 10px;
       }
     }

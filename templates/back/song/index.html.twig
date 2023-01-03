@@ -1,20 +1,37 @@
-{% extends '../../base.html.twig' %}
+{% extends 'back/base.html.twig' %}
 
-{% block title %}Hello SongController!{% endblock %}
-
+{% block title %}Liste des artistes{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container admin_content">
+        <h3 class="content_title">Liste des chansons</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Identifiant</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Artiste</th>
+                <th scope="col">Album</th>
+                <th scope="col">Durée</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for song in songs %}
+                <tr>
+                    <th scope="row">{{ song.id }}</th>
+                    <td>{{ song.title }}</td>
+                    <td>{% for artist in song.artists %}
+                            {{ artist.name}}
+                        {% endfor %}</td>
+                    <td>{% for album in song.albums %}
+                            {{album.title}}
+                        {% endfor %}</td>
+                    <td>{{ song.duration }}</td>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Stagiaire Osengo 08/Desktop/div-a-app/src/Controller/SongController.php'|file_link(0) }}">src/Controller/SongController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Stagiaire Osengo 08/Desktop/div-a-app/templates/song/index.html.twig'|file_link(0) }}">templates/song/index.html.twig</a></code></li>
-    </ul>
-</div>
+{#                    <td><span class="img"><img src="{{ asset('images/artist/' ~artist.image) }}" alt=""></span></td>#}
+{#                    <td>{{ artist.createdAt | date('d/m/Y') }}</td>#}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

@@ -139,7 +139,7 @@ class Artist
 
     public function __toString(): string
     {
-       return $this->getAlbums();
+       return $this->getName();
     }
 
     /**

@@ -28,7 +28,7 @@ class GenreController extends AbstractController
     {
     }
 
-    #[Route('/genre', name: 'app_genre')]
+    #[Route('/genre/list', name: 'app_genre')]
     public function index(): Response
     {
         return $this->render('back/genre/index.html.twig', [

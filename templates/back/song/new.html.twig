@@ -1,36 +1,39 @@
 {% extends 'back/base.html.twig' %}
 
-{% block title %}Hello ArtistController!{% endblock %}
+{% block title %}Ajouter des chansons{% endblock %}
 
 {% block body %}
 
     <div class="container">
-        <h2>Ajouter un artiste</h2>
-        <div class="form">
+        <h2>Ajouter des chansons</h2>
+        <div class="song_form">
             <form method="post" enctype="multipart/form-data">
+                <div class="album_artist">
+                    {{ form_start(form) }}
+                    {{ form_label(form.albums) }}
+                    {{ form_widget(form.albums,  {'attr': {"class": "form-control"}}) }}
 
-                {{ form_start(form) }}
+                    {{ form_label(form.artists) }}
+                    {{ form_widget(form.artists,  {'attr': {"class": "form-control"}}) }}
+                </div>
+                <div class="song_info">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title, {'attr': {"class": "form-control"}}) }}
 
-                {{ form_label(form.title) }}
-                {{ form_widget(form.title, {'attr': {"class": "form-control"}}) }}
-
-                {{ form_label(form.duration) }}
-                {{ form_widget(form.duration,  {'attr': {"class": "form-control"}}) }}
-
-                {{ form_label(form.albums) }}
-                {{ form_widget(form.albums,  {'attr': {"class": "form-control"}}) }}
-
-                {{ form_label(form.artists) }}
-                {{ form_widget(form.artists,  {'attr': {"class": "form-control"}}) }}
-
-                {{ form_label(form.styles) }}
-                {{ form_widget(form.styles,  {'attr': {"class": "form-control"}}) }}
+                    {{ form_label(form.duration) }}
+                    {{ form_widget(form.duration,  {'attr': {"class": "form-control"}}) }}
 
 
+
+                    {{ form_label(form.styles) }}
+                    {{ form_widget(form.styles,  {'attr': {"class": "form-control"}}) }}
+                </div>
+                <div class="upload_file">
                 {{ form_label(form.audioFile) }}
-                {{ form_widget(form.imageFile,  {'attr': {"class": "form-control"}}) }}
+                {{ form_widget(form.audioFile,  {'attr': {"class": "form-control"}}) }}
+                </div>
 
-                <button class="btn btn-lg" type="submit">
+                <button class="btn btn-lg" type="submit" id="submit-song">
                     Ajouter
                 </button>
                 {{ form_end(form) }}

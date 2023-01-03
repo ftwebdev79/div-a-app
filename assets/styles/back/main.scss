@@ -15,11 +15,13 @@ $font-text: 1rem;
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
-@import "_artist_index.scss";
-
 @import "_header_admin.scss";
 
 @import "form-style";
+
+@import "_backoffice.scss";
+
+@import "_songs-form.scss";
 
 body{
   margin:0;

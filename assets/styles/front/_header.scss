@@ -1,9 +1,9 @@
-.user_header{
+.user_header {
   position: sticky;
   top: 0;
   z-index: 1;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 0;
   background-color: $color-one;
   font-family: $font-one;
@@ -12,35 +12,67 @@
   box-shadow: 10px 5px 5px $color-five;
   height: 10vh;
 
-  h1 {
-    text-shadow: 1px 1px 2px $color-four;
-    font-family: $font-one;
-    font-size: $font-title;
-    text-align: center;
+  .responsive_menu {
+    display: none;
   }
 
-  button {
-    height: 3rem;
-    width: 10rem;
-    font-family: $font-one;
-    font-weight: bold;
-    background-color: $color-four;
-    border: none;
-    border-radius: 15px;
-    font-size: $font-button;
-    box-shadow: 1px 1px 2px $color-five;
-    a {
-      text-decoration: none;
-      color: $color-five;
+  .display_responsive{
+    display: block;
+  }
+
+  .header_title {
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      text-shadow: 1px 1px 2px $color-four;
+      font-family: $font-one;
+      font-size: $font-title;
+      text-align: center;
     }
-    a:hover{
+  }
+
+  .connexion, .logout{
+    width: 33.33%;
+    display: flex;
+    justify-content: space-evenly;
+
+    .btn_login, .btn_register, .btn_logout {
+      height: 2rem;
+      width: 10rem;
+      font-family: $font-one;
       color: $color-one;
+      background-color: $color-four;
+      border: none;
+      border-radius: 15px;
+      font-size: $font-button;
+      box-shadow: 1px 1px 2px $color-five;
+
+    }
+
+    .btn_login:hover {
+      background-color: $color-three;
+      color: $color-four;
+    }
+
+    .btn_register:hover{
+      background-color: $color-three;
+      color: $color-four;
+    }
+
+     .btn_logout:hover{
+      background-color: $color-three;
+      color: $color-four;
     }
   }
 
   .logo {
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+
     img {
-      width: 5rem;
       height: 4rem;
       object-fit: cover;
       background-color: transparent;
@@ -48,14 +80,33 @@
   }
 }
 
-@media screen and (max-width: 500px) {
-  header {
+@media screen and (max-width: 720px) {
+  .user_header {
     width: 100%;
-    h1 {
-      font-size: 2rem;
+
+    .logo {
+      width: 30%;
     }
-    button {
-      display: none;
+
+    .header_title {
+      width: 70%;
+      display: block;
+      padding-top: 15px;
+      padding-left: 15px;
+
+      h1 {
+        font-size: 1.5rem;
+
+      }
+    }
+
+    .connexion {
+      .btn_register{
+        display: none;
+      }
+      .btn_login{
+        margin: 6px;
+      }
     }
   }
 }

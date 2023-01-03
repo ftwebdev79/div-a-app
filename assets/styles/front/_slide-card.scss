@@ -1,24 +1,34 @@
+.item{
+  width: 25%;
+  text-decoration: none;
+  .card {
+    background-color: $color-four !important;
+    border: none !important;
+    width: 150px;
+    margin: 10px;
 
+    img {
+      clip-path: ellipse(50% 50%);
+      object-fit: cover;
+    }
 
-.card {
-  background-color: $color-four !important;
-  border: none !important;
-  width: 150px;
-  margin: 10px;
+    .card-text {
+      color: $color-one;
+      text-align: center;
+      font-family: "Lucida Console", monospace, sans-serif;
+      font-size: 14px;
+      margin-top: -10px;
+    }
 
-  img {
-    clip-path: ellipse(50% 50%);
-    object-fit: cover;
-  }
-
-  .card-text {
-    color: $color-one;
-    text-align: center;
-    font-family: "Lucida Console", monospace, sans-serif;
-    font-size: 1rem;
-    margin-top: -10px;
+    .card-text-artist{
+      color: $color-one;
+      font-size: 10px;
+      text-align: center;
+    }
   }
 }
+
+
 
 
 

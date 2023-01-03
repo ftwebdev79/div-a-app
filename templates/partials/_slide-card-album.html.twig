@@ -1,0 +1,18 @@
+
+<a class="item" href="{{ path('app_album_details', {'id': album.id}) }}">
+
+    <div class="card">
+
+        <img src="{{ asset ('/images/album/'~album.cover) }}" class="card-img-top" alt="...">
+
+        <div class="card-body">
+
+                <h3 class="card-text">{{ album.title }}</h3>
+
+            {% for artist in album.artists %}
+                <h4 class="card-text-artist">par {{ artist.name }}</h4>
+            {% endfor %}
+
+        </div>
+    </div>
+</a>

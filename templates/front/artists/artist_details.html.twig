@@ -1,13 +1,25 @@
 <section class="artist_details">
-    <div class="artist_image">
-        <img src="{{ asset('public/build/images/' ~ artist.image)}}" alt="" class="artist_cover">
-        <p class="artist_name">{{ artist.name }}</p>
-        <p class="first_release">Première sortie de l'artiste : {{ artist.firstReleasedAt | date('d/m/Y') }}</p>
+    <div class="artist_info">
+        <div class="artist_image">
+            <img src="{{ asset('images/artist/' ~ artist.image) }}" alt="" class="artist_cover">
+        </div>
+        <div class="artist_datas">
+            <p class="artist_name">{{ artist.name }}</p>
+            <p class="first_release">Première sortie de l'artiste : {{ artist.firstReleasedAt | date('d/m/Y') }}</p>
+        </div>
+
     </div>
-
+    <hr>
+    <h2>A propos de l'artiste</h2>
     <div class="artist_description">{{ artist.description }}</div>
-
+    <hr>
+    <h2>Tous les albums de {{ artist.name }}</h2>
     <div class="artist_albums">
-
+        {% for album in artist.albums %}
+            <div class="album_cover">
+                <img src="{{ asset('images/album/' ~album.cover) }}" alt="">
+                <p>{{ album.title }}</p>
+            </div>
+        {% endfor %}
     </div>
 </section>

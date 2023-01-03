@@ -1,0 +1,18 @@
+{% if artist is defined and artist is not null %}
+<a class="item" href="{{ path('app_artist_details', {'id': artist.id}) }}" id="artist_slide">
+    {% else %}
+        Unknown artist
+    {% endif %}
+    <div class="card">
+        {% if artist is defined and artist is not null %}
+        <img src="{{ asset ('/images/artist/'~artist.image) }}" class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+            {% if artist is defined and artist is not null %}
+                <h3 class="card-text">{{ artist.name }}</h3>
+            {% else %}
+                Unknown artist
+            {% endif %}
+        </div>
+    </div>
+</a>

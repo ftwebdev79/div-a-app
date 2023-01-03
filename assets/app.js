@@ -11,5 +11,15 @@ import '/assets/styles/main.scss';
 // start the Stimulus application
 import './bootstrap';
 
-// import './scripts/front/sliderTest'
-import './scripts/front/slider'
+import './scripts/back/link.js';
+
+import './scripts/front/slider';
+
+import './scripts/front/songSerializer';
+
+// import './scripts/front/responsiveMenu';
+
+import AjaxService from "./scripts/front/ajaxService";
+
+const ajaxDisplay = new AjaxService(document.querySelector('#js-ajax'))
+

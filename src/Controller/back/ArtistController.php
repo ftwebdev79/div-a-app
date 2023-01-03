@@ -26,8 +26,7 @@ class ArtistController extends AbstractController
     {
     }
 
-    #[Route('/artist
-    ', name: 'app_artist')]
+    #[Route('/artist/list', name: 'app_artist_list')]
     public function displayAllArtists(ArtistRepository $artistRepository): Response
     {
         return $this->render('back/artist/index.html.twig', [
@@ -80,4 +79,41 @@ class ArtistController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/artist/{id}
+    ', name: 'app_artist_edit')]
+    public function editArtist(ArtistRepository $artistRepository, Request $request, EntityManagerInterface $entityManager, string $id): Response
+    {
+        $artist = $artistRepository->find($id);
+        $form = $this->createForm(ArtistType::class, $artist);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManager->flush();
+        }
+
+
+        return $this->render('back/artist/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/artist/{id}
+    ', name: 'app_artist_delete')]
+    public function deleteArtist(ArtistRepository $artistRepository, Request $request, EntityManagerInterface $entityManager, string $id): Response
+    {
+        $artist = $artistRepository->find($id);
+        $form = $this->createForm(ArtistType::class, $artist);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManager->flush();
+        }
+
+
+        return $this->render('back/artist/delete.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
 }

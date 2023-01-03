@@ -7,6 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use PHPUnit\Util\Json;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SongRepository::class)]
 class Song
@@ -19,9 +22,6 @@ class Song
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $duration = null;
-
     #[ORM\ManyToMany(targetEntity: Album::class, mappedBy: 'songs')]
     private Collection $albums;
 
@@ -33,6 +33,18 @@ class Song
 
     #[ORM\ManyToMany(targetEntity: Artist::class, inversedBy: 'songs')]
     private Collection $artists;
+
+    #[Assert\File(maxSize: '10000k',
+        mimeTypes: ['audio/mp3', 'audio/mp4'],
+        mimeTypesMessage: 'Merci de charger un fichier de type mp3 ou mp4')]
+    #[ORM\Column(length: 255)]
+    private ?string $pathName = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $duration = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cover = null;
 
 
     public function __construct()
@@ -56,18 +68,6 @@ class Song
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function getDuration(): ?\DateTimeInterface
-    {
-        return $this->duration;
-    }
-
-    public function setDuration(?\DateTimeInterface $duration): self
-    {
-        $this->duration = $duration;
 
         return $this;
     }
@@ -173,6 +173,56 @@ class Song
     public function removeArtist(Artist $artist): self
     {
         $this->artists->removeElement($artist);
+
+        return $this;
+    }
+
+    public function getPathName(): ?string
+    {
+        return $this->pathName;
+    }
+
+    public function setPathName(string $pathName): self
+    {
+        $this->pathName = $pathName;
+
+        return $this;
+    }
+
+    public function getDuration(): ?string
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(string $duration): self
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+//    public function songToJson($song):object{
+//
+//        $song = [
+//           "name"=> $this->getTitle(),
+//           "artist"=> $this->getArtists(),
+//            "album"=> $this->getAlbums(),
+//            "url"=> $this->getPathName(),
+//             ];
+//
+//        return new JsonResponse($song);
+//
+//
+//    }
+
+    public function getCover(): ?string
+    {
+        return $this->cover;
+    }
+
+    public function setCover(?string $cover): self
+    {
+        $this->cover = $cover;
 
         return $this;
     }

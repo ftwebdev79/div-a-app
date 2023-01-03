@@ -1,0 +1,55 @@
+{% block main %}
+    <section class="album_details" >
+        <div class="album_info">
+            <div class="album_image">
+                <img src="{{ asset('images/album/' ~ album.cover) }}" alt="" class="artist_cover">
+            </div>
+            <div class="album_datas">
+                <p class="album_title">{{ album.title }}</p>
+                <p class="first_release">Sortie le : {{ album.releasedAt | date('d/m/Y') }}</p>
+                <p class="first_release">
+                    {% for song  in  album.songs | slice (0, 1) %}
+                        {% for artist in song.artists %}
+                            {{ artist.name}}
+                        {% endfor %}
+                    {% endfor %}
+                </p>
+            </div>
+
+        </div>
+        <hr>
+        <table class="table" id="album-content">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Title</th>
+                <th scope="col">Artiste</th>
+                <th scope="col">Album</th>
+                <th scope="col">Durée</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for song in album.songs %}
+                <tr>
+
+                    <th scope="row">{{ song.id }}</th>
+                    <td><a class="song_link" href="{{ song.pathname }}">
+                            {{ song.title }}       </a></td>
+                    <td>{% for artist in song.artists %}
+                            {{ artist.name }}
+                        {% endfor %}</td>
+                    <td>{% for album in song.albums %}
+                            {{ album.title }}
+                        {% endfor %}</td>
+                    <td>{{ song.duration }}</td>
+                </tr>
+
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+    </section>
+{% endblock %}
