@@ -4,8 +4,6 @@ namespace App\Controller\async;
 
 use App\Entity\Album;
 use App\Entity\Artist;
-use App\Repository\AlbumRepository;
-use App\Repository\SongRepository;
 use App\Services\SongService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,9 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AsyncSongController extends AbstractController
 {
     public function __construct(
-        private SongRepository $songRepository,
         private SongService $songService,
-        private AlbumRepository $albumRepository
     )
     {
     }

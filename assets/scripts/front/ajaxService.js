@@ -2,6 +2,7 @@
 import 'aplayer/dist/APlayer.min.css';
 import APlayer from 'aplayer';
 
+
 export default class AjaxService {
     // /**
     //  * @param {HTMLElement | null}
@@ -11,14 +12,10 @@ export default class AjaxService {
         if (element === null) {
             return
         }
-        this.pages = element.querySelectorAll('[data-charge-page]')
-        this.content = element.querySelector('#js-display-content')
+        this.pages = element.querySelectorAll('[data-charge-page]');
+        this.content = element.querySelector('#js-display-content');
         this.backBtn = document.querySelector('button#back');
-        this.details = document.querySelector('article#details')
-        console.log({
-            detail: this.details,
-            content: this.content
-        })
+        this.details = document.querySelector('article#details');
         this.bindEvents()
     }
 
@@ -28,7 +25,7 @@ export default class AjaxService {
                 page.querySelectorAll('a').forEach(a => {
                     a.addEventListener('click', e => {
                         e.preventDefault()
-                        const url = a.href;
+                        const url = a.getAttribute('href');
                         this.loadUrl(url)
                         this.loadSongs(url)
                     })
@@ -53,9 +50,6 @@ export default class AjaxService {
         if (response.status >= 200 && response.status < 300) {
             const pageContent = await response.text()
             this.details.innerHTML = pageContent
-            // const divAppear = document.createElement('div')
-            // divAppear.classList.add('.appear')
-            // divAppear.appendChild(this.content)
             this.backBtn.classList.remove('d-none');
             this.content.classList.add('d-none');
         } else {
@@ -72,7 +66,7 @@ export default class AjaxService {
             const songs = await response.json();
             new APlayer({
                 container: document.getElementById('aplayer'),
-                audio: songs
+                audio: songs,
             });
 
         } else {
@@ -86,3 +80,4 @@ export default class AjaxService {
         this.details.innerHTML = "";
     }
 }
+

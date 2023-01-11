@@ -8,14 +8,21 @@
     </div>
 
 
-    {% if app.user %}
+    {% if app.user and not is_granted('ROLE_ADMIN') %}
         <div class="logout">
             <a class="btn btn_logout" href="{{ path('app_logout') }}">Log Out</a>
         </div>
-    {% else %}
+    {% elseif is_granted('ROLE_ADMIN') %}
+        <div class="connexion">
+            <a class="btn btn_logout" href="{{ path('app_logout') }}">Log Out</a>
+            <a class="btn btn_login" href="{{ path('app_user_list') }}">Admin</a>
+        </div>
+    {% endif %}
+    {% if not app.user %}
         <div class="connexion">
             <a class="btn btn_login" href="{{ path('app_login') }}">Log in</a>
             <a class="btn btn_register" href="{{ path('app_register') }}">Inscription</a>
         </div>
     {% endif %}
+
 </header>

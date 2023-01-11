@@ -24,10 +24,8 @@ class HomeController extends AbstractController
     {
 
         return $this->render('front/home/user-interface.html.twig', [
-            'albums' => $albumRepository->findAll(),
-            'artists'=> $artistRepository->findAll()
+            'albums' => $albumRepository->displayLastAlbumsReleased(),
+            'artists'=> $artistRepository->displayLastArtistAdded()
         ]);
     }
-
-
 }

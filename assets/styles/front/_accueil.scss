@@ -130,15 +130,18 @@
   }
 }
   @media screen and (max-width: 700px) {
-    .front_card {
-      width: 80%;
-      font-size: $font-button;
+.container{
+  .front_card {
+    width: 80%;
+    font-size: $font-button;
 
-      .btn {
-        width: 50%;
-        font-size: 0.8rem;
-        margin: 10px;
-      }
+    .btn {
+      width: 50%;
+      font-size: 0.8rem;
+      margin: 10px;
+    }
+}
+
     }
   }
 }

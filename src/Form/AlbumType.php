@@ -6,13 +6,12 @@ use App\Entity\Album;
 use App\Entity\Artist;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class AlbumType extends AbstractType
 {
@@ -31,9 +30,14 @@ class AlbumType extends AbstractType
             ])
             ->add('coverFile', FileType::class, [
                 'label' => 'Couverture',
-                'mapped' => false
+                'mapped' => false,
+                'constraints'=> new File(
+                    maxSize: '2048k',
+                    mimeTypes: ['image/jpeg', 'image/png'],
+                    mimeTypesMessage: 'Thanks to upload a jpeg or png file',
+                )
             ])
-//            ->add('songs')
+
             ->add('artists', EntityType::class, [
                 'class' => Artist::class,
                 'label' => 'Artiste(s)',

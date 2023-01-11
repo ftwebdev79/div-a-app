@@ -4,36 +4,46 @@
 
 {% block body %}
     <div class="container admin_content">
-        <h3 class="content_title">Listes des Artistes</h3>
 
-        <table class="table">
-            <thead>
+    <h3 class="content_title">Listes des Albums</h3>
+
+    {% for flash in app.flashes('success') %}
+        <div class="alert alert-success">
+        {{ flash }}
+        </div>
+    {% endfor %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Identifiant</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Durée</th>
+            <th scope="col">Sortie le</th>
+            <th scope="col">Artiste(s)</th>
+            <th scope="col">Pochette</th>
+            <th scope="col">Action</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for album in albums %}
             <tr>
-                <th scope="col">Identifiant</th>
-                <th scope="col">Titre</th>
-                <th scope="col">Durée</th>
-                <th scope="col">Sortie le</th>
-                <th scope="col">Artiste(s)</th>
-                <th scope="col">Pochette</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for album in albums %}
-                <tr>
-                    <th scope="row">{{ album.id }}</th>
-                    <td>{{ album.title }}</td>
-                    <td>{{ album.duration  }}</td>
-                        <td>{{ album.releasedAt | date('d/m/Y') }}</td>
+                <th scope="row">{{ album.id }}</th>
+                <td>{{ album.title }}</td>
+                <td>{{ album.duration }}</td>
+                <td>{{ album.releasedAt | date('d/m/Y') }}</td>
 
-                        <td>
+                <td>
                     {% for artist in album.artists %}
-                            {{ artist.name | join(', ')}}
+                        {{ artist.name }}
                     {% endfor %}
-                        </td>
-                    <td><span class="img"><img src="{{ asset('images/album/' ~album.cover) }}" alt=""></span></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </td>
+                <td><span class="img"><img src="{{ asset('images/album/' ~album.cover) }}" alt=""></span></td>
+                <td><a href="{{ path('app_album_edit', {'id': album.id}) }}" class="btn btn-primary">Edit</a></td>
+                <td><a href="{{ path('app_album_delete', {'id': album.id}) }}" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
     </div>
 {% endblock %}

@@ -12,6 +12,8 @@
                 <th scope="col">Artiste</th>
                 <th scope="col">Album</th>
                 <th scope="col">Durée</th>
+                <th scope="col">Action</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -26,6 +28,8 @@
                             {{album.title}}
                         {% endfor %}</td>
                     <td>{{ song.duration }}</td>
+                    <td><a href="#" class="btn btn-primary">Edit</a></td>
+                    <td><a class="btn btn-danger">Supprimer</a></td>
 
 {#                    <td><span class="img"><img src="{{ asset('images/artist/' ~artist.image) }}" alt=""></span></td>#}
 {#                    <td>{{ artist.createdAt | date('d/m/Y') }}</td>#}

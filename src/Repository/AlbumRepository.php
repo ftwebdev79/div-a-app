@@ -39,6 +39,17 @@ class AlbumRepository extends ServiceEntityRepository
         }
     }
 
+    public function displayLastAlbumsReleased(){
+        return $this->createQueryBuilder('al')
+            ->where('al.releasedAt IS NOT NULL')
+            ->orderBy('al.releasedAt', 'DESC')
+            ->setMaxResults(12)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
 //    /**
 //     * @return Album[] Returns an array of Album objects
 //     */

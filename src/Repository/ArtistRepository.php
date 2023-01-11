@@ -39,6 +39,16 @@ class ArtistRepository extends ServiceEntityRepository
         }
     }
 
+    public function displayLastArtistAdded(){
+        return $this->createQueryBuilder('ar')
+            ->where('ar.createdAt IS NOT NULL')
+            ->orderBy('ar.createdAt', 'DESC')
+            ->setMaxResults(12)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 //    /**
 //     * @return Artist[] Returns an array of Artist objects
 //     */

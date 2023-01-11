@@ -37,14 +37,13 @@ class Song
     #[Assert\File(maxSize: '10000k',
         mimeTypes: ['audio/mp3', 'audio/mp4'],
         mimeTypesMessage: 'Merci de charger un fichier de type mp3 ou mp4')]
+    #[Assert\Valid]
     #[ORM\Column(length: 255)]
     private ?string $pathName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $duration = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $cover = null;
 
 
     public function __construct()
@@ -201,29 +200,4 @@ class Song
         return $this;
     }
 
-//    public function songToJson($song):object{
-//
-//        $song = [
-//           "name"=> $this->getTitle(),
-//           "artist"=> $this->getArtists(),
-//            "album"=> $this->getAlbums(),
-//            "url"=> $this->getPathName(),
-//             ];
-//
-//        return new JsonResponse($song);
-//
-//
-//    }
-
-    public function getCover(): ?string
-    {
-        return $this->cover;
-    }
-
-    public function setCover(?string $cover): self
-    {
-        $this->cover = $cover;
-
-        return $this;
-    }
 }

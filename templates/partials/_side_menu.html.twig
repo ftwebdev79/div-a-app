@@ -1,4 +1,9 @@
 <section class="menu">
+<nav class="side_nave">
+
+    <a href="{{ path('app_logout') }}" class="btn btn_side_button">Log Out</a>
+    <a href="{{ path('app_user_interface') }}" class="btn btn_side_button">Retour à l'interface</a>
+
     <ul>
         <h4>Utilisateurs</h4>
         <li><a href="{{ path('app_user_list') }}" class="link_active" id="admin_link">Liste des utilisateurs</a></li>
@@ -19,4 +24,5 @@
         <li><a href="{{ path('app_genre') }}" id="admin_link">Liste des styles</a></li>
         <li><a href="{{ path('app_genre_new') }}" id="admin_link">Ajouter un style</a></li>
     </ul>
+</nav>
 </section>
